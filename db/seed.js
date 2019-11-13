@@ -54,7 +54,7 @@ const filmData = filmsJson.map(item => {
     producer: item.producer,
     release_date: item.release_date,
     people: getPeople(item.id, peopleData),
-    locations: item.locations,
+    // locations: item.locations,
     url: convertUrlFilms(item.url)
   };
   return film;

@@ -10,7 +10,7 @@ const FilmSchema = new Schema({
   producer: String,
   release_date: String,
   people: [People.schema],
-  locations: [String],
+  // locations: [String],
   url: String
 });
 
