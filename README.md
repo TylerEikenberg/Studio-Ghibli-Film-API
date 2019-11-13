@@ -27,7 +27,7 @@ The __films__ endpoint will give you information about the various Studio Ghibli
   },
   ```  
     
-    
+
   The __people__ endpoint will give you information about various characters within Studio Ghibli films. Information includes character name, gender, and unique url.  
   ```
   {
@@ -43,3 +43,11 @@ The __films__ endpoint will give you information about the various Studio Ghibli
     "__v": 0
   },
   ```
+
+  ## Searching  
+You can search the API is several different way. You can search at the __/films__, __/people__, and __/locations__ endpoint by using their respective ids. 
+```
+http://localhost:4000/films/12cfb892-aac0-4c5b-94af-521852e46d6a
+```
+You can also search for movies by a specific director using the endpoint __/films/director/**nameOfDirector**__  
+![Director Search](./assets/apigifdirector.gif)  

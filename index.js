@@ -23,7 +23,7 @@ app.get("/films/:id", (req, res) => {
   });
 });
 app.get("/films/director/:director", (req, res) => {
-  Film.findOne({ director: req.params.director }).then(films => {
+  Film.find({ director: req.params.director }).then(films => {
     res.json(films);
   });
 });
