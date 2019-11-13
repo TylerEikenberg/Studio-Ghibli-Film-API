@@ -2,13 +2,13 @@
 # Studio Ghibli API  
 The __Studio Ghibli API__ documents information about the films from Studio Ghibli and information about the characters within the films.  
 
-## Endpoints  
-- films  
-- people 
-- locations  
-- films/director/
-
 ## Getting Started  
+
+1. Clone the repo
+2. Run `npm install`
+3. Start a `mongod` server 
+4. Run `npm run seed` to seed the data
+5. Run `npm run dev` to open a connection to the database
 
 REST routes for the Film model:
 
@@ -35,7 +35,7 @@ REST routes for the Locations model:
 | URL                  | Path                    | Method   | Action  | Description                                 |
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/locations`         | `/locations`            | `GET`    | #index  | List of all Locations                       |
-| `/locations`         | `/locations/:id`        | `GET`    | #index  | List a specific location by id              |
+| `/locations`         | `/locations/:id`        | `GET`    | #index  | List a specific location by id              |  
 
 ![Director Search](./assets/apigifdirector.gif)  
 
