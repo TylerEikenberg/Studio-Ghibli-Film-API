@@ -67,6 +67,11 @@ http://localhost:4000/films/12cfb892-aac0-4c5b-94af-521852e46d6a
 You can also search for movies by a specific director using the endpoint __/films/director/**nameOfDirector**__  
 ![Director Search](./assets/apigifdirector.gif)  
 
+## Creating, Updating, and Deleting
+You can create a new person at the endpoint __/people/create__.
+You can update an existing person using their __id__ at the endpoint __/people__.
+You can delete a person or a film at their respective endpoints using their __id__.
+
 
 ### Technologies Used  
 Javascript, MongoDB, Mongoose, Express.js, Node.js, Heroku.
