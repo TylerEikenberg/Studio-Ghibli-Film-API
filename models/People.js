@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const PeopleSchema = new Schema({
   id: String,
-  title: String,
+  name: String,
   gender: String,
   films: [String],
   species: String,

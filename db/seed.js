@@ -7,7 +7,7 @@ const peopleJson = require("./data/people");
 const getPeople = (movieId, people) => {
   let movieCharacters = [];
   people.forEach(person => {
-    if (person.films[0] === movieId) {
+    if (person.films === movieId) {
       movieCharacters.push(person);
     }
   });
@@ -20,7 +20,7 @@ var n = str.slice(38); to get id of film for character
 const peopleData = peopleJson.map(item => {
   const people = {
     id: item.id,
-    title: item.title,
+    name: item.name,
     gender: item.gender,
     films: item.films[0].slice(38),
     species: item.species,

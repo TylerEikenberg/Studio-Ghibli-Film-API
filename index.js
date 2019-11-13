@@ -12,6 +12,13 @@ app.get("/films", function(req, res) {
   });
 });
 
+app.get("/films/:id", function(req, res) {
+  let filmId = req.params.id;
+  Film.findOne({ _id: filmId }).then(films => {
+    res.json(films);
+  });
+});
+
 app.listen(4000, () => {
   console.log(`hello you're server is running on port 4000`);
 });
