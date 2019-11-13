@@ -34,7 +34,6 @@ The __films__ endpoint will give you information about the various Studio Ghibli
     "films": [
       "0440483e-ca0e-4120-8c50-4c8cd9b965d6"
     ],
-    "_id": "5dcc1d7400c92974ba7d7bc4",
     "id": "ba924631-068e-4436-b6de-f3283fa848f0",
     "name": "Ashitaka",
     "gender": "Male",
@@ -42,10 +41,25 @@ The __films__ endpoint will give you information about the various Studio Ghibli
     "peopleUrl": "http://localhost:4000/people/",
     "__v": 0
   },
+  ```  
+
+    The __locations__ endpoint will give you information about various locations within Studio Ghibli films. Information includes name, climate, terrain, films, and unique url.
+  ```
+  {
+    "url": [
+      "http://localhost:4000/locations/11014596-71b0-4b3e-b8c0-1c4b15f28b9a"
+    ],
+    "id": "11014596-71b0-4b3e-b8c0-1c4b15f28b9a",
+    "name": "Irontown",
+    "climate": "Continental",
+    "terrain": "Mountain",
+    "films": "0440483e-ca0e-4120-8c50-4c8cd9b965d6",
+    "__v": 0
+  },
   ```
 
   ## Searching  
-You can search the API is several different way. You can search at the __/films__, __/people__, and __/locations__ endpoint by using their respective ids. 
+You can search the API in several different way. You can search at the __/films__, __/people__, and __/locations__ endpoint by using their respective __id__. 
 ```
 http://localhost:4000/films/12cfb892-aac0-4c5b-94af-521852e46d6a
 ```
