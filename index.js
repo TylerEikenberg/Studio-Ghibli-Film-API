@@ -58,5 +58,5 @@ app.delete("/people/:id", (req, res) => {
 });
 
 app.listen(4000, () => {
-  console.log(`hello you're server is running on port 4000`);
+  console.log(`Hey bud; server's runnin' on port 4000.`);
 });

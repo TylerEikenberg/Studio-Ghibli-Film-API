@@ -38,8 +38,9 @@ const peopleData = peopleJson.map(item => {
     name: item.name,
     gender: item.gender,
     films: item.films[0].slice(38),
-    species: item.species,
-    url: convertUrlPeople(item.url)
+    // species: item.species,
+    url: convertUrlPeople(item.url),
+    peopleUrl: "http://localhost:4000/people/"
   };
   return people;
 });

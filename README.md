@@ -1,0 +1,1 @@
+![Studio Ghibli Banner](./assets/ghiblibanner.png)
