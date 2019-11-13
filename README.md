@@ -71,8 +71,8 @@ You can also search for movies by a specific director using the endpoint __/film
 
 ## Creating, Updating, and Deleting
 You can create a new person at the endpoint __/people/create__.
-You can update an existing person using their __id__ at the endpoint __/people__.
-You can delete a person or a film at their respective endpoints using their __id__.
+You can update an existing person using their __id__ at the endpoint __/people/update__.
+You can delete a person or a film at *their-respective-endpoints/*__delete__ using their __id__.
 
 
 ### Technologies Used  
