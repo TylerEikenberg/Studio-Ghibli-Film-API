@@ -66,3 +66,7 @@ http://localhost:4000/films/12cfb892-aac0-4c5b-94af-521852e46d6a
 ```
 You can also search for movies by a specific director using the endpoint __/films/director/**nameOfDirector**__  
 ![Director Search](./assets/apigifdirector.gif)  
+
+
+### Technologies Used  
+Javascript, MongoDB, Mongoose, Express.js, Node.js, Heroku.
