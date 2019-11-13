@@ -33,10 +33,17 @@ app.get("/people/:id", (req, res) => {
     res.json(people);
   });
 });
-app.post("/people/post", (req, res) => {
+app.post("/people/create", (req, res) => {
   People.create(req.body).then(people => {
     res.json(people);
   });
+});
+app.put("/people/:id", (req, res) => {
+  People.findOneAndUpdate({ id: req.params.id }, req.body, { new: true }).then(
+    people => {
+      res.json(people);
+    }
+  );
 });
 
 app.delete("/films/:id", (req, res) => {
