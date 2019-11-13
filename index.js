@@ -3,6 +3,7 @@ const app = express();
 const parser = require("body-parser");
 const Film = require("./models/Film");
 const People = require("./models/People");
+const Location = require("./models/Location");
 app.use(parser.json());
 
 app.get("/", (req, res) => {
@@ -49,6 +50,12 @@ app.put("/people/:id", (req, res) => {
       res.json(people);
     }
   );
+});
+
+app.get("/locations", (req, res) => {
+  Location.find({}).then(locations => {
+    res.json(locations);
+  });
 });
 
 app.delete("/films/:id", (req, res) => {
