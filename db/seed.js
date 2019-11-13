@@ -66,8 +66,8 @@ const locationData = locationsJson.map(item => {
     id: item.id,
     name: item.name,
     climate: item.climate,
-    terrain: item.terrain,
-    url: item.url
+    terrain: item.terrain
+    // url: item.url
   };
   return location;
 });
