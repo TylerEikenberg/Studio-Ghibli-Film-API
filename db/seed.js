@@ -2,12 +2,19 @@ mongoose = require("./connection.js");
 const Film = require("../models/Film");
 const People = require("../models/People");
 const filmsJson = require("./data/films.json");
-const peopleJson = require("./data/people");
+const peopleJson = require("./data/people.json");
 
-const convertUrl = oldUrl => {
+const convertUrlFilms = oldUrl => {
   let myUrl = oldUrl.replace(
     "https://ghibliapi.herokuapp.com/films",
     "http://localhost:4000/films"
+  );
+  return myUrl;
+};
+const convertUrlPeople = oldUrl => {
+  let myUrl = oldUrl.replace(
+    "https://ghibliapi.herokuapp.com/people",
+    "http://localhost:4000/people"
   );
   return myUrl;
 };
@@ -32,7 +39,7 @@ const peopleData = peopleJson.map(item => {
     gender: item.gender,
     films: item.films[0].slice(38),
     species: item.species,
-    url: item.url
+    url: convertUrlPeople(item.url)
   };
   return people;
 });
@@ -47,7 +54,7 @@ const filmData = filmsJson.map(item => {
     release_date: item.release_date,
     people: getPeople(item.id, peopleData),
     locations: item.locations,
-    url: convertUrl(item.url)
+    url: convertUrlFilms(item.url)
   };
   return film;
 });

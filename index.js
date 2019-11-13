@@ -25,6 +25,12 @@ app.get("/people", function(req, res) {
     res.json(people);
   });
 });
+app.get("/people/:id", function(req, res) {
+  let peopleId = req.params.id;
+  People.findOne({ id: peopleId }).then(people => {
+    res.json(people);
+  });
+});
 
 app.listen(4000, () => {
   console.log(`hello you're server is running on port 4000`);
