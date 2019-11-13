@@ -44,7 +44,7 @@ app.post("/people/create", (req, res) => {
     res.json(people);
   });
 });
-app.put("/people/:id", (req, res) => {
+app.put("/people/update/:id", (req, res) => {
   People.findOneAndUpdate({ id: req.params.id }, req.body, { new: true }).then(
     people => {
       res.json(people);
@@ -64,12 +64,12 @@ app.get("/locations/:id", (req, res) => {
   });
 });
 
-app.delete("/films/:id", (req, res) => {
+app.delete("/films/delete/:id", (req, res) => {
   Film.findOneAndRemove({ id: req.params.id }).then(film => {
     res.json(film);
   });
 });
-app.delete("/people/:id", (req, res) => {
+app.delete("/people/delete/:id", (req, res) => {
   People.findOneAndRemove({ id: req.params.id }).then(people => {
     res.json(people);
   });
