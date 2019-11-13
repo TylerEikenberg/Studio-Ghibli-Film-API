@@ -1,8 +1,15 @@
 const express = require("express");
 const app = express();
+const Film = require("./models/Film");
 
-app.get("/", (req, res) => {
-  res.send("hello world");
+app.get("/", function(req, res) {
+  res.redirect("/films");
+});
+
+app.get("/films", function(req, res) {
+  Film.find({}).then(films => {
+    res.json(films);
+  });
 });
 
 app.listen(4000, () => {
