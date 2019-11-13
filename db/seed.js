@@ -1,6 +1,7 @@
 mongoose = require("./connection.js");
 const Film = require("../models/Film");
 const People = require("../models/People");
+const Location = require("../models/Location");
 const filmsJson = require("./data/films.json");
 const peopleJson = require("./data/people.json");
 
