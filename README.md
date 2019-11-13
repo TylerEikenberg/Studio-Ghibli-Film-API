@@ -74,4 +74,7 @@ You can delete a person or a film at their respective endpoints using their __id
 
 
 ### Technologies Used  
-Javascript, MongoDB, Mongoose, Express.js, Node.js, Heroku.
+Javascript, MongoDB, Mongoose, Express.js, Node.js, Heroku.  
+
+
+_README banner image from http://www.fanpop.com/_
