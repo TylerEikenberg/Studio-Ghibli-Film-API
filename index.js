@@ -57,6 +57,12 @@ app.get("/locations", (req, res) => {
     res.json(locations);
   });
 });
+app.get("/locations/:id", (req, res) => {
+  let locationsId = req.params.id;
+  Location.findOne({ id: locationsId }).then(films => {
+    res.json(films);
+  });
+});
 
 app.delete("/films/:id", (req, res) => {
   Film.findOneAndRemove({ id: req.params.id }).then(film => {

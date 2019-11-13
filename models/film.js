@@ -1,6 +1,7 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 const People = require("./People");
+const Location = require("./Location");
 
 const FilmSchema = new Schema({
   id: String,
@@ -10,7 +11,7 @@ const FilmSchema = new Schema({
   producer: String,
   release_date: String,
   people: [People.schema],
-  // locations: [String],
+  locations: [Location.schema],
   url: String
 });
 

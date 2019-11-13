@@ -20,6 +20,13 @@ const convertUrlPeople = oldUrl => {
   );
   return myUrl;
 };
+const convertUrlLocation = oldUrl => {
+  let myUrl = oldUrl.replace(
+    "https://ghibliapi.herokuapp.com/locations",
+    "http://localhost:4000/locations"
+  );
+  return myUrl;
+};
 const getPeople = (movieId, people) => {
   let movieCharacters = [];
   people.forEach(person => {
@@ -28,6 +35,15 @@ const getPeople = (movieId, people) => {
     }
   });
   return movieCharacters;
+};
+const getLocations = (movieId, location) => {
+  let movieLocations = [];
+  location.forEach(location => {
+    if (location.films === movieId) {
+      movieLocations.push(location);
+    }
+  });
+  return movieLocations;
 };
 
 /*
@@ -39,11 +55,23 @@ const peopleData = peopleJson.map(item => {
     name: item.name,
     gender: item.gender,
     films: item.films[0].slice(38),
-    // species: item.species,
+
     url: convertUrlPeople(item.url),
     peopleUrl: "http://localhost:4000/people/"
   };
   return people;
+});
+
+const locationData = locationsJson.map(item => {
+  const location = {
+    id: item.id,
+    name: item.name,
+    climate: item.climate,
+    terrain: item.terrain,
+    films: item.films[0].slice(38),
+    url: convertUrlLocation(item.url[0])
+  };
+  return location;
 });
 
 const filmData = filmsJson.map(item => {
@@ -55,22 +83,10 @@ const filmData = filmsJson.map(item => {
     producer: item.producer,
     release_date: item.release_date,
     people: getPeople(item.id, peopleData),
-    // locations: item.locations,
+    locations: getLocations(item.id, locationData),
     url: convertUrlFilms(item.url)
   };
   return film;
-});
-
-const locationData = locationsJson.map(item => {
-  const location = {
-    id: item.id,
-    name: item.name,
-    climate: item.climate,
-    terrain: item.terrain,
-    films: convertUrlFilms(item.films[0]),
-    url: item.url
-  };
-  return location;
 });
 
 const runSeeder = async () => {

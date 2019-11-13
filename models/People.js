@@ -6,7 +6,6 @@ const PeopleSchema = new Schema({
   name: String,
   gender: String,
   films: [String],
-  // species: String,
   url: String,
   peopleUrl: String
 });
