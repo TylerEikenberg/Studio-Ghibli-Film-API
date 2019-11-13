@@ -45,7 +45,7 @@ The __films__ endpoint will give you information about the various Studio Ghibli
 
 
 The __locations__ endpoint will give you information about various locations within Studio Ghibli films. Information includes name, climate, terrain, films, and unique url.  
-    ```
+```
   {
     "url": [
       "http://localhost:4000/locations/11014596-71b0-4b3e-b8c0-1c4b15f28b9a"
