@@ -2,7 +2,7 @@ const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
 const FilmSchema = new Schema({
-  _id: String,
+  id: String,
   title: String,
   description: String,
   director: String,

@@ -1,29 +1,18 @@
-const axios = require("axios");
+mongoose = require("./connection.js");
 const Film = require("../models/Film");
+const ghibliJson = require("./data/ghibli.json");
 
-const url = "https://ghibliapi.herokuapp.com/films";
-
-const dirtyfilmData = [];
-
-axios.get(url).then(
-  response => {
-    dirtyfilmData = response;
-  },
-  error => {
-    console.log(error);
-  }
-);
-
-const filmData = dirtyfilmData.map(item => {
-  const film = {};
-  film._id = item._id;
-  film.title = item.title;
-  film.description = item.description;
-  film.director = item.director;
-  film.producer = item.producer;
-  film.release_date = item.release_date;
-  film.people = item.people;
-  film.locations = item.locations;
+const filmData = ghibliJson.map(item => {
+  const film = {
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    director: item.director,
+    producer: item.producer,
+    release_date: item.release_date,
+    people: item.people,
+    locations: item.locations
+  };
   return film;
 });
 
