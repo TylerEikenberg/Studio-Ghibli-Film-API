@@ -4,7 +4,9 @@ The __Studio Ghibli API__ documents information about the films from Studio Ghib
 
 ## Endpoints  
 - films  
-- people  
+- people 
+- locations  
+- films/director/
 
 ## Getting Started  
 The __films__ endpoint will give you information about the various Studio Ghibli films produced over the years.  Information includes titles, description, director, producer, release date, and list of characters in the film.  
