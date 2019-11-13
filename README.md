@@ -26,6 +26,8 @@ The __films__ endpoint will give you information about the various Studio Ghibli
     "__v": 0
   },
   ```  
+    
+    
   The __people__ endpoint will give you information about various characters within Studio Ghibli films. Information includes character name, gender, and unique url.  
   ```
   {
