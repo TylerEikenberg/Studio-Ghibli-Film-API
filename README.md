@@ -16,20 +16,28 @@ REST routes for the Film model:
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/films`             | `/`                     | `GET`    | #index  | List of all Films                           |
 | `/films/`            | `/films/:id`            | `GET`    | #show   | Displays a single Film by id                |
-| `/films/director`    | `/director/:director`   | `GET`    | #show   | Lists all films by a specific director      |
+| `/films/director`    | `/director/:director`   | `GET`    | #show   | Lists all films by a specific director      | 
+| `/films/delete`      | `/films/delete/:id`     | `DELETE` | #delete | Removes a film from the database by id      |
+  
 
-  ## Searching  
-You can search the API in several different way. You can search at the __/films__, __/people__, and __/locations__ endpoint by using their respective __id__. 
-```
-http://localhost:4000/films/12cfb892-aac0-4c5b-94af-521852e46d6a
-```
-You can also search for movies by a specific director using the endpoint __/films/director/**nameOfDirector**__  
+REST routes for the People model:
+
+| URL                  | Path                    | Method   | Action  | Description                                 |
+| -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
+| `/people`            | `/people`               | `GET`    | #index  | List of all People                          |
+| `/people/`           | `/people/:id`           | `GET`    | #show   | Display a single person by id               |
+| `/people/create`     | `/people/create`        | `POST`   | #create | Creates a new person                        |
+| `/people/update`     | `/people/update/:id`    | `PUT`    | #update | Updates an existing persons data            |
+| `/people/delete`     | `/people/delete/:id`    | `DELETE` | #delete | Removes a person from the database by id    |  
+
+REST routes for the Locations model:
+
+| URL                  | Path                    | Method   | Action  | Description                                 |
+| -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
+| `/locations`         | `/locations`            | `GET`    | #index  | List of all Locations                       |
+| `/locations`         | `/locations/:id`        | `GET`    | #index  | List a specific location by id              |
+
 ![Director Search](./assets/apigifdirector.gif)  
-
-## Creating, Updating, and Deleting
-You can create a new person at the endpoint __/people/create__.
-You can update an existing person using their __id__ at the endpoint __/people/update__.
-You can delete a person or a film at *their-respective-endpoints/*__delete__ using their __id__.
 
 
 ### Technologies Used  
