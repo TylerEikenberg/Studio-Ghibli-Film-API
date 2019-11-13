@@ -8,8 +8,8 @@ const LocationSchema = new Schema({
   name: String,
   climate: String,
   terrain: String,
-  residents: [People.schema],
-  films: [Film.schema],
+  //   residents: [People.schema],
+  //   films: [Film.schema],
   url: [String]
 });
 

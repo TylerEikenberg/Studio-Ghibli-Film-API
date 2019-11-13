@@ -2,6 +2,7 @@ mongoose = require("./connection.js");
 const Film = require("../models/Film");
 const People = require("../models/People");
 const Location = require("../models/Location");
+const locationsJson = require("./data/locations.json");
 const filmsJson = require("./data/films.json");
 const peopleJson = require("./data/people.json");
 
@@ -19,7 +20,6 @@ const convertUrlPeople = oldUrl => {
   );
   return myUrl;
 };
-
 const getPeople = (movieId, people) => {
   let movieCharacters = [];
   people.forEach(person => {
@@ -61,12 +61,26 @@ const filmData = filmsJson.map(item => {
   return film;
 });
 
+const locationData = locationsJson.map(item => {
+  const location = {
+    id: item.id,
+    name: item.name,
+    climate: item.climate,
+    terrain: item.terrain,
+    url: item.url
+  };
+  return location;
+});
+
 const runSeeder = async () => {
   const deletedPeople = await People.deleteMany({});
   console.log(deletedPeople);
 
   const deletedFilms = await Film.deleteMany({});
   console.log(deletedFilms);
+
+  const deletedLocations = await Location.deleteMany({});
+  console.log(deletedLocations);
 
   const people = await People.create(peopleData);
   console.log(people.length);
@@ -75,6 +89,10 @@ const runSeeder = async () => {
   const films = await Film.create(filmData);
   console.log(films.length);
   console.log("films done");
+
+  const locations = await Location.create(locationData);
+  console.log(locations.length);
+  console.log("locations done");
   process.exit();
 };
 
