@@ -32,6 +32,12 @@ app.get("/people/:id", function(req, res) {
   });
 });
 
+app.delete("/films/:id", (req, res) => {
+  Film.findOneAndRemove({ id: req.params.id }).then(film => {
+    res.json(film);
+  });
+});
+
 app.listen(4000, () => {
   console.log(`hello you're server is running on port 4000`);
 });
