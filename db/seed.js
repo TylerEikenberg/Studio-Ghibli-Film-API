@@ -4,6 +4,14 @@ const People = require("../models/People");
 const filmsJson = require("./data/films.json");
 const peopleJson = require("./data/people");
 
+const convertUrl = oldUrl => {
+  let myUrl = oldUrl.replace(
+    "https://ghibliapi.herokuapp.com/films",
+    "http://localhost:4000/films"
+  );
+  return myUrl;
+};
+
 const getPeople = (movieId, people) => {
   let movieCharacters = [];
   people.forEach(person => {
@@ -38,15 +46,37 @@ const filmData = filmsJson.map(item => {
     producer: item.producer,
     release_date: item.release_date,
     people: getPeople(item.id, peopleData),
-    locations: item.locations
+    locations: item.locations,
+    url: convertUrl(item.url)
   };
   return film;
 });
 
-Film.deleteMany({}).then(() => {
-  Film.create(filmData).then(films => {
-    console.log(films);
-    console.log("films done");
-    process.exit();
-  });
-});
+const runSeeder = async () => {
+  const deletedPeople = await People.deleteMany({});
+  console.log(deletedPeople);
+
+  const deletedFilms = await Film.deleteMany({});
+  console.log(deletedFilms);
+
+  const people = await People.create(peopleData);
+  console.log(people.length);
+  console.log("people done");
+
+  const films = await Film.create(filmData);
+  console.log(films.length);
+  console.log("films done");
+  process.exit();
+};
+
+runSeeder();
+
+// Film.deleteMany({}).then(deletedFilms => {
+//   console.log(deletedFilms);
+
+//   Film.create(filmData).then(films => {
+//     console.log(films);
+//     console.log("films done");
+//     process.exit();
+//   });
+// });

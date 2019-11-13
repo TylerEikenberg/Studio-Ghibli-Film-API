@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const Film = require("./models/Film");
+const People = require("./models/People");
 
 app.get("/", function(req, res) {
   res.redirect("/films");
@@ -14,8 +15,14 @@ app.get("/films", function(req, res) {
 
 app.get("/films/:id", function(req, res) {
   let filmId = req.params.id;
-  Film.findOne({ _id: filmId }).then(films => {
+  Film.findOne({ id: filmId }).then(films => {
     res.json(films);
+  });
+});
+
+app.get("/people", function(req, res) {
+  People.find({}).then(people => {
+    res.json(people);
   });
 });
 
