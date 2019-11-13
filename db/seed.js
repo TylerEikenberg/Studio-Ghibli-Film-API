@@ -1,8 +1,8 @@
 mongoose = require("./connection.js");
 const Film = require("../models/Film");
-const ghibliJson = require("./data/ghibli.json");
+const filmsJson = require("./data/films.json");
 
-const filmData = ghibliJson.map(item => {
+const filmData = filmsJson.map(item => {
   const film = {
     id: item.id,
     title: item.title,
