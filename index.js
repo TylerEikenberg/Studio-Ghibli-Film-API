@@ -6,6 +6,10 @@ const People = require("./models/People");
 const Location = require("./models/Location");
 app.use(parser.json());
 
+/* TODO
+  ADD SEARCH BY FILM TITLE
+*/
+
 app.get("/", (req, res) => {
   res.redirect("/films");
 });
@@ -27,7 +31,15 @@ app.get("/films/director/:director", (req, res) => {
     res.json(films);
   });
 });
+app.get("/films/title/:title", (req, res) => {
+  Film.find({ title: req.params.title }).then(films => {
+    res.json(films);
+  });
+});
 
+/* TODO
+  ADD SEARCH BY CHARACTER NAME
+*/
 app.get("/people", (req, res) => {
   People.find({}).then(people => {
     res.json(people);
@@ -51,7 +63,9 @@ app.put("/people/update/:id", (req, res) => {
     }
   );
 });
-
+/* TODO
+  ADD SEARCH BY LOCATION NAME
+*/
 app.get("/locations", (req, res) => {
   Location.find({}).then(locations => {
     res.json(locations);

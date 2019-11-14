@@ -1,6 +1,6 @@
 ![Studio Ghibli Banner](./assets/ghiblibanner.png)  
 # Studio Ghibli API  
-The __Studio Ghibli API__ documents information about the films from Studio Ghibli and information about the characters within the films.  
+The __Studio Ghibli API__ documents information about the films from Studio Ghibli and information about the characters and locations within the films.  
 
 ## Getting Started  
 
@@ -42,6 +42,8 @@ REST routes for the Locations model:
 
 ### Technologies Used  
 Javascript, MongoDB, Mongoose, Express.js, Node.js, Heroku.  
-
-
-_README banner image from http://www.fanpop.com/_
+  
+  
+  
+- _Dataset from https://ghibliapi.herokuapp.com/_ 
+- _README banner image from http://www.fanpop.com/_
