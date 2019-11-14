@@ -16,7 +16,9 @@ REST routes for the Film model:
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/films`             | `/`                     | `GET`    | #index  | List of all Films                           |
 | `/films/`            | `/films/:id`            | `GET`    | #show   | Displays a single Film by id                |
+| `/films/title`       | `/title/:title`         | `GET`    | #show   | Displays a single Film by title             | 
 | `/films/director`    | `/director/:director`   | `GET`    | #show   | Lists all films by a specific director      | 
+| `/films/title`       | `/title/:title`         | `GET`    | #show   | Displays a single Film by title             | 
 | `/films/delete`      | `/films/delete/:id`     | `DELETE` | #delete | Removes a film from the database by id      |
   
 

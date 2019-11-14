@@ -6,10 +6,6 @@ const People = require("./models/People");
 const Location = require("./models/Location");
 app.use(parser.json());
 
-/* TODO
-  ADD SEARCH BY FILM TITLE
-*/
-
 app.get("/", (req, res) => {
   res.redirect("/films");
 });
@@ -48,6 +44,11 @@ app.get("/people", (req, res) => {
 app.get("/people/:id", (req, res) => {
   let peopleId = req.params.id;
   People.findOne({ id: peopleId }).then(people => {
+    res.json(people);
+  });
+});
+app.get("/people/name/:name", (req, res) => {
+  People.findOne({ name: req.params.name }).then(people => {
     res.json(people);
   });
 });
