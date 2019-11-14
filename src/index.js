@@ -7,26 +7,49 @@ const Location = require("../models/Location");
 app.use(parser.json());
 
 app.use(express.static("doc"));
-/**
- * @api {get} /user/:id Request User information
- * @apiName GetUser
- * @apiGroup User
- *
- * @apiParam {Number} id User's unique ID.
- *
- * @apiSuccess {String} firstname Firstname of the User.
- * @apiSuccess {String} lastname  Lastname of the User.
- */
+
 app.get("/", (req, res) => {
   res.redirect("/films");
 });
 
+/**
+ * @api {get} /films/ Returns Studio Ghibli Movies
+ * @apiName Get Films
+ * @apiGroup Films
+ *
+ * @apiParam {String} id User's unique ID.
+ *
+ * @apiSuccess {String} id Unique ID of film.
+ * @apiSuccess {String} title  Title of film.
+ * @apiSuccess {String} description  Description of film.
+ * @apiSuccess {String} director  Director of film.
+ * @apiSuccess {String} producer  Producer of film.
+ * @apiSuccess {String} release_date  Release date of film.
+ * @apiSuccess {Array} people  Array of characters in the film.
+ * @apiSuccess {Array} locations  Array of locations within the film.
+ */
 app.get("/films", (req, res) => {
   Film.find({}).then(films => {
     res.json(films);
   });
 });
 
+/**
+ * @api {get} /films/:id Returns a single movie by a unique id.
+ * @apiName Get Films
+ * @apiGroup Films
+ *
+ * @apiParam {String} id User's unique ID.
+ *
+ * @apiSuccess {String} id Unique ID of film.
+ * @apiSuccess {String} title  Title of film.
+ * @apiSuccess {String} description  Description of film.
+ * @apiSuccess {String} director  Director of film.
+ * @apiSuccess {String} producer  Producer of film.
+ * @apiSuccess {String} release_date  Release date of film.
+ * @apiSuccess {Array} people  Array of characters in the film.
+ * @apiSuccess {Array} locations  Array of locations within the film.
+ */
 app.get("/films/:id", (req, res) => {
   Film.findOne({ id: req.params.id }).then(films => {
     res.json(films);
@@ -100,4 +123,10 @@ app.delete("/people/delete/:id", (req, res) => {
 
 app.listen(4000, () => {
   console.log(`Hey bud; server's runnin' on port 4000.`);
+});
+
+app.set("port", process.env.PORT || 8080);
+
+app.listen(app.get("port"), () => {
+  console.log(`✅ PORT: ${app.get("port")} 🌟`);
 });
