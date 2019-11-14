@@ -34,6 +34,7 @@ const getPeople = (movieId, people) => {
       movieCharacters.push(person);
     }
   });
+
   return movieCharacters;
 };
 const getLocations = (movieId, location) => {

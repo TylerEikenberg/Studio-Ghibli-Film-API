@@ -15,7 +15,7 @@ REST routes for the Film model:
 | URL                  | Path                    | Method   | Action  | Description                                 |
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/films`             | `/`                     | `GET`    | #index  | List of all Films                           |
-| `/films/`            | `/films/:id`            | `GET`    | #show   | Displays a single Film by id                |
+| `/films/`            | `/:id`                  | `GET`    | #show   | Displays a single Film by id                |
 | `/films/title`       | `/title/:title`         | `GET`    | #show   | Displays a single Film by title             | 
 | `/films/director`    | `/director/:director`   | `GET`    | #show   | Lists all films by a specific director      | 
 | `/films/title`       | `/title/:title`         | `GET`    | #show   | Displays a single Film by title             | 
@@ -27,7 +27,7 @@ REST routes for the People model:
 | URL                  | Path                    | Method   | Action  | Description                                 |
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/people`            | `/people`               | `GET`    | #index  | List of all People                          |
-| `/people/`           | `/people/:id`           | `GET`    | #show   | Display a single person by id               |
+| `/people/`           | `/:id`                  | `GET`    | #show   | Display a single person by id               |
 | `/people/name`       | `/people/name/:name`    | `GET`    | #show   | Display a single person by name             |
 | `/people/create`     | `/people/create`        | `POST`   | #create | Creates a new person                        |
 | `/people/update`     | `/people/update/:id`    | `PUT`    | #update | Updates an existing persons data            |
@@ -38,7 +38,7 @@ REST routes for the Locations model:
 | URL                  | Path                    | Method   | Action  | Description                                 |
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/locations`         | `/locations`            | `GET`    | #index  | List of all Locations                       |
-| `/locations`         | `/locations/:id`        | `GET`    | #index  | List a specific location by id              | 
+| `/locations`         | `/:id`                  | `GET`    | #index  | List a specific location by id              | 
 | `/locations/name`    | `/locations/name/:name` | `GET`    | #index  | List a specific location by name            |  
 
 ![Director Search](./assets/apigifdirector.gif)  

@@ -1,11 +1,22 @@
 const express = require("express");
 const app = express();
 const parser = require("body-parser");
-const Film = require("./models/Film");
-const People = require("./models/People");
-const Location = require("./models/Location");
+const Film = require("../models/Film");
+const People = require("../models/People");
+const Location = require("../models/Location");
 app.use(parser.json());
 
+app.use(express.static("doc"));
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id User's unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
 app.get("/", (req, res) => {
   res.redirect("/films");
 });
@@ -17,8 +28,7 @@ app.get("/films", (req, res) => {
 });
 
 app.get("/films/:id", (req, res) => {
-  let filmId = req.params.id;
-  Film.findOne({ id: filmId }).then(films => {
+  Film.findOne({ id: req.params.id }).then(films => {
     res.json(films);
   });
 });
@@ -39,8 +49,7 @@ app.get("/people", (req, res) => {
   });
 });
 app.get("/people/:id", (req, res) => {
-  let peopleId = req.params.id;
-  People.findOne({ id: peopleId }).then(people => {
+  People.findOne({ id: req.params.id }).then(people => {
     res.json(people);
   });
 });
@@ -61,17 +70,14 @@ app.put("/people/update/:id", (req, res) => {
     }
   );
 });
-/* TODO
-  ADD SEARCH BY LOCATION NAME
-*/
+
 app.get("/locations", (req, res) => {
   Location.find({}).then(locations => {
     res.json(locations);
   });
 });
 app.get("/locations/:id", (req, res) => {
-  let locationsId = req.params.id;
-  Location.findOne({ id: locationsId }).then(locations => {
+  Location.findOne({ id: req.params.id }).then(locations => {
     res.json(locations);
   });
 });
