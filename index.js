@@ -33,9 +33,6 @@ app.get("/films/title/:title", (req, res) => {
   });
 });
 
-/* TODO
-  ADD SEARCH BY CHARACTER NAME
-*/
 app.get("/people", (req, res) => {
   People.find({}).then(people => {
     res.json(people);
@@ -74,8 +71,13 @@ app.get("/locations", (req, res) => {
 });
 app.get("/locations/:id", (req, res) => {
   let locationsId = req.params.id;
-  Location.findOne({ id: locationsId }).then(films => {
-    res.json(films);
+  Location.findOne({ id: locationsId }).then(locations => {
+    res.json(locations);
+  });
+});
+app.get("/locations/name/:name", (req, res) => {
+  Location.findOne({ name: req.params.name }).then(locations => {
+    res.json(locations);
   });
 });
 

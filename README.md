@@ -28,6 +28,7 @@ REST routes for the People model:
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/people`            | `/people`               | `GET`    | #index  | List of all People                          |
 | `/people/`           | `/people/:id`           | `GET`    | #show   | Display a single person by id               |
+| `/people/name`       | `/people/name/:name`    | `GET`    | #show   | Display a single person by name             |
 | `/people/create`     | `/people/create`        | `POST`   | #create | Creates a new person                        |
 | `/people/update`     | `/people/update/:id`    | `PUT`    | #update | Updates an existing persons data            |
 | `/people/delete`     | `/people/delete/:id`    | `DELETE` | #delete | Removes a person from the database by id    |  
@@ -37,7 +38,8 @@ REST routes for the Locations model:
 | URL                  | Path                    | Method   | Action  | Description                                 |
 | -------------------- | ----------------------- | -------- | ------- | ------------------------------------------- |
 | `/locations`         | `/locations`            | `GET`    | #index  | List of all Locations                       |
-| `/locations`         | `/locations/:id`        | `GET`    | #index  | List a specific location by id              |  
+| `/locations`         | `/locations/:id`        | `GET`    | #index  | List a specific location by id              | 
+| `/locations/name`    | `/locations/name/:name` | `GET`    | #index  | List a specific location by name            |  
 
 ![Director Search](./assets/apigifdirector.gif)  
 
