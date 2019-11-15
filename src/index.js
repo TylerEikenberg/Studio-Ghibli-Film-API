@@ -9,11 +9,9 @@ app.use(parser.json());
 app.use(express.static("doc"));
 
 /**
- * @api {get} /films Returns Studio Ghibli Movies
+ 
  * @apiName GetFilms
  * @apiGroup Films
- *
- * @apiParam {String} id User's unique ID.
  *
  * @apiSuccess {String} id Unique ID of film.
  * @apiSuccess {String} title  Title of film.
