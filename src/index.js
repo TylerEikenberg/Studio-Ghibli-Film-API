@@ -267,11 +267,38 @@ app.get("/locations/name/:name", (req, res) => {
   });
 });
 
+/**
+ * @api {delete} /films/delete/:id 5. Removes a film from the database.
+ * @apiName DeleteFilm
+ * @apiGroup Films
+ *
+ * @apiSuccess {String} id Unique ID of film.
+ * @apiSuccess {String} title  Title of film.
+ * @apiSuccess {String} description  Description of film.
+ * @apiSuccess {String} director  Director of film.
+ * @apiSuccess {String} producer  Producer of film.
+ * @apiSuccess {String} release_date  Release date of film.
+ * @apiSuccess {People[]} people  Array of characters in the film.
+ * @apiSuccess {Locations[]} locations  Array of locations within the film.
+ */
 app.delete("/films/delete/:id", (req, res) => {
   Film.findOneAndRemove({ id: req.params.id }).then(film => {
     res.json(film);
   });
 });
+
+/**
+ * @api {delete} /people/delete/:id 6. Removes a character from the database.
+ * @apiName DeleteCharacter
+ * @apiGroup People
+ *
+ * @apiSuccess {String} id Unique ID of character.
+ * @apiSuccess {String} name  Name of character.
+ * @apiSuccess {String} gender  Gender of character.
+ * @apiSuccess {Films[]} films  List of films character appears in.
+ * @apiSuccess {String} url  Url of unique character.
+ * @apiSuccess {String} peopleUrl Url back to /people.
+ */
 app.delete("/people/delete/:id", (req, res) => {
   People.findOneAndRemove({ id: req.params.id }).then(people => {
     res.json(people);
