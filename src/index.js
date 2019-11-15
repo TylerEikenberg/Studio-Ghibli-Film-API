@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
 });
 
 /**
- * @api {get} /films/ Returns Studio Ghibli Movies
- * @apiName Get Films
+ * @api {get} /films Returns Studio Ghibli Movies
+ * @apiName GetFilms
  * @apiGroup Films
  *
  * @apiParam {String} id User's unique ID.
@@ -35,7 +35,7 @@ app.get("/films", (req, res) => {
 });
 
 /**
- * @api {get} /films/:id Returns a single movie by a unique id.
+ * @api {get} /films/:id Return single movie by a unique id.
  * @apiName Get Films
  * @apiGroup Films
  *

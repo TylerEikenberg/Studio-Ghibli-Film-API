@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/ghibli", {
-  useNewUrlParser: true
-});
+
 let mongoURI = "";
 
 if (process.env.NODE_ENV === "production") {
@@ -9,5 +7,9 @@ if (process.env.NODE_ENV === "production") {
 } else {
   mongoURI = "mongodb://localhost/ghibli";
 }
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true
+});
 
 module.exports = mongoose;
