@@ -9,7 +9,7 @@ app.use(parser.json());
 app.use(express.static("doc"));
 
 /**
- * @api {get} /films 1. Returns Studio Ghibli Movies
+ * @api {get} /films 1. Returns list of films
  * @apiName GetFilms
  * @apiGroup Films
  *
@@ -128,7 +128,7 @@ app.get("/films/title/:title", (req, res) => {
 });
 
 /**
- * @api {get} /people 4. Return list of characters
+ * @api {get} /people 1. Return list of characters
  * @apiName GetCharacters
  * @apiGroup People
  *
@@ -144,21 +144,69 @@ app.get("/people", (req, res) => {
     res.json(people);
   });
 });
+/**
+ * @api {get} /people/:id 2. Return single character by unique id.
+ * @apiName GetCharacterById
+ * @apiGroup People
+ *
+ * @apiSuccess {String} id Unique ID of character.
+ * @apiSuccess {String} name  Name of character.
+ * @apiSuccess {String} gender  Gender of character.
+ * @apiSuccess {Films[]} films  List of films character appears in.
+ * @apiSuccess {String} url  Url of unique character.
+ * @apiSuccess {String} peopleUrl Url back to /people.
+ */
 app.get("/people/:id", (req, res) => {
   People.findOne({ id: req.params.id }).then(people => {
     res.json(people);
   });
 });
+/**
+ * @api {get} /people/name/:name 3. Return single character by name.
+ * @apiName GetCharacterByName
+ * @apiGroup People
+ *
+ * @apiSuccess {String} id Unique ID of character.
+ * @apiSuccess {String} name  Name of character.
+ * @apiSuccess {String} gender  Gender of character.
+ * @apiSuccess {Films[]} films  List of films character appears in.
+ * @apiSuccess {String} url  Url of unique character.
+ * @apiSuccess {String} peopleUrl Url back to /people.
+ */
 app.get("/people/name/:name", (req, res) => {
   People.findOne({ name: req.params.name }).then(people => {
     res.json(people);
   });
 });
+/**
+ * @api {post} /people/create 4. Create a character.
+ * @apiName CreateCharacter
+ * @apiGroup People
+ *
+ * @apiSuccess {String} id Unique ID of character.
+ * @apiSuccess {String} name  Name of character.
+ * @apiSuccess {String} gender  Gender of character.
+ * @apiSuccess {Films[]} films  List of films character appears in.
+ * @apiSuccess {String} url  Url of unique character.
+ * @apiSuccess {String} peopleUrl Url back to /people.
+ */
 app.post("/people/create", (req, res) => {
   People.create(req.body).then(people => {
     res.json(people);
   });
 });
+/**
+ * @api {put} /people/update/:id 5. Update character info by unique id.
+ * @apiName UpdateCharacter
+ * @apiGroup People
+ *
+ * @apiSuccess {String} id Unique ID of character.
+ * @apiSuccess {String} name  Name of character.
+ * @apiSuccess {String} gender  Gender of character.
+ * @apiSuccess {Films[]} films  List of films character appears in.
+ * @apiSuccess {String} url  Url of unique character.
+ * @apiSuccess {String} peopleUrl Url back to /people.
+ */
 app.put("/people/update/:id", (req, res) => {
   People.findOneAndUpdate({ id: req.params.id }, req.body, { new: true }).then(
     people => {
@@ -167,16 +215,52 @@ app.put("/people/update/:id", (req, res) => {
   );
 });
 
+/**
+ * @api {get} /locations 1. Returns list of locations
+ * @apiName GetLocations
+ * @apiGroup Locations
+ *
+ * @apiSuccess {String} id Unique ID of location.
+ * @apiSuccess {String} name  Name of location.
+ * @apiSuccess {String} climate  Climate of location.
+ * @apiSuccess {Films[]} terrain  Terrain of location.
+ * @apiSuccess {String} films  Film that location appears in.
+ * @apiSuccess {String} url Unique url of location.
+ */
 app.get("/locations", (req, res) => {
   Location.find({}).then(locations => {
     res.json(locations);
   });
 });
+/**
+ * @api {get} /locations/:id 2. Returns location by unique id.
+ * @apiName GetLocationsById
+ * @apiGroup Locations
+ *
+ * @apiSuccess {String} id Unique ID of location.
+ * @apiSuccess {String} name  Name of location.
+ * @apiSuccess {String} climate  Climate of location.
+ * @apiSuccess {Films[]} terrain  Terrain of location.
+ * @apiSuccess {String} films  Film that location appears in.
+ * @apiSuccess {String} url Unique url of location.
+ */
 app.get("/locations/:id", (req, res) => {
   Location.findOne({ id: req.params.id }).then(locations => {
     res.json(locations);
   });
 });
+/**
+ * @api {get} /locations/name/:name 3. Returns location by name.
+ * @apiName GetLocationsByName
+ * @apiGroup Locations
+ *
+ * @apiSuccess {String} id Unique ID of location.
+ * @apiSuccess {String} name  Name of location.
+ * @apiSuccess {String} climate  Climate of location.
+ * @apiSuccess {Films[]} terrain  Terrain of location.
+ * @apiSuccess {String} films  Film that location appears in.
+ * @apiSuccess {String} url Unique url of location.
+ */
 app.get("/locations/name/:name", (req, res) => {
   Location.findOne({ name: req.params.name }).then(locations => {
     res.json(locations);
