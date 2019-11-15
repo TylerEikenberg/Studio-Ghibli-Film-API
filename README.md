@@ -1,6 +1,6 @@
 ![Studio Ghibli Banner](./assets/ghiblibanner.png)  
 # Studio Ghibli API  
-The __Studio Ghibli API__ documents information about the films from Studio Ghibli and information about the characters and locations within the films.  
+The [Studio Ghibli API](https://ghibli-api-tse.herokuapp.com/) documents information about the films from Studio Ghibli and information about the characters and locations within the films.  
 
 ## Getting Started  
 
