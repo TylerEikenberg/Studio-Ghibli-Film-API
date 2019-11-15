@@ -8,7 +8,8 @@
     "seed": "npm run getData && node ./db/seed.js",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "getData": "sh ./db/getData.sh"
+    "getData": "sh ./db/getData.sh",
+    "docs": "apidoc -i src/ -o doc/"
   },
   "keywords": [],
   "author": "",
