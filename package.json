@@ -9,7 +9,8 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "getData": "sh ./db/getData.sh",
-    "docs": "apidoc -i src/ -o doc/"
+    "docs": "apidoc -i src/ -o doc/",
+    "heroseed": "heroku run node db/seed.js"
   },
   "keywords": [],
   "author": "",

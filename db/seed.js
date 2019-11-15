@@ -9,21 +9,21 @@ const peopleJson = require("./data/people.json");
 const convertUrlFilms = oldUrl => {
   let myUrl = oldUrl.replace(
     "https://ghibliapi.herokuapp.com/films",
-    "http://localhost:4000/films"
+    "https://ghibli-api-tse.herokuapp.com/films"
   );
   return myUrl;
 };
 const convertUrlPeople = oldUrl => {
   let myUrl = oldUrl.replace(
     "https://ghibliapi.herokuapp.com/people",
-    "http://localhost:4000/people"
+    "https://ghibli-api-tse.herokuapp.com/people"
   );
   return myUrl;
 };
 const convertUrlLocation = oldUrl => {
   let myUrl = oldUrl.replace(
     "https://ghibliapi.herokuapp.com/locations",
-    "http://localhost:4000/locations"
+    "https://ghibli-api-tse.herokuapp.com/locations"
   );
   return myUrl;
 };
@@ -58,7 +58,7 @@ const peopleData = peopleJson.map(item => {
     films: item.films[0].slice(38),
 
     url: convertUrlPeople(item.url),
-    peopleUrl: "http://localhost:4000/people/"
+    peopleUrl: "https://ghibli-api-tse.herokuapp.com/people/"
   };
   return people;
 });
@@ -115,13 +115,3 @@ const runSeeder = async () => {
 };
 
 runSeeder();
-
-// Film.deleteMany({}).then(deletedFilms => {
-//   console.log(deletedFilms);
-
-//   Film.create(filmData).then(films => {
-//     console.log(films);
-//     console.log("films done");
-//     process.exit();
-//   });
-// });
