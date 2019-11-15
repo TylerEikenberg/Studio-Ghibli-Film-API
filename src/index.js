@@ -9,7 +9,7 @@ app.use(parser.json());
 app.use(express.static("doc"));
 
 /**
- 
+ * @api {get} /films Returns Studio Ghibli Movies
  * @apiName GetFilms
  * @apiGroup Films
  *
