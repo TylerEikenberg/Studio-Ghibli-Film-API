@@ -4,8 +4,10 @@ const parser = require("body-parser");
 const Film = require("../models/Film");
 const People = require("../models/People");
 const Location = require("../models/Location");
+var cors = require("cors");
 app.use(parser.json());
 
+app.use(cors());
 app.use(express.static("doc"));
 
 /**
