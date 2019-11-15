@@ -8,10 +8,6 @@ app.use(parser.json());
 
 app.use(express.static("doc"));
 
-app.get("/", (req, res) => {
-  res.redirect("/films");
-});
-
 /**
  * @api {get} /films Returns Studio Ghibli Movies
  * @apiName GetFilms
