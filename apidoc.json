@@ -1,7 +1,0 @@
-{
-    "name": "Studio Ghibli API",
-    "version": "0.1.0",
-    "description": "The Studio Ghibli API catalogs the various films created by Studio Ghibli and the characters and locations within the films.",
-    "title": "Studio Ghibli API",
-    "url" : "localhost:4000"
-  }

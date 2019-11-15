@@ -15,6 +15,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "apidoc": {
+    "name": "Studio Ghibli API",
+    "version": "0.1.0",
+    "description": "The Studio Ghibli API catalogs the various films created by Studio Ghibli and the characters and locations within the films.",
+    "title": "Studio Ghibli API",
+    "url" : ""
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
