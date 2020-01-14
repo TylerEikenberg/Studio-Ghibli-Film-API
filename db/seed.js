@@ -52,11 +52,9 @@ var n = str.slice(38); to get id of film for character
  */
 const peopleData = peopleJson.map(item => {
   const people = {
-    id: item.id,
     name: item.name,
     gender: item.gender,
     films: item.films[0].slice(38),
-
     url: convertUrlPeople(item.url),
     peopleUrl: "https://ghibli-api-tse.herokuapp.com/people/"
   };

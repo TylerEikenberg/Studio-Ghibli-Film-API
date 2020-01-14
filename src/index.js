@@ -85,7 +85,7 @@ app.get("/films", (req, res) => {
 }
  */
 app.get("/films/:id", (req, res) => {
-  Film.findOne({ id: req.params.id }).then(films => {
+  Film.findOne({ _id: req.params.id }).then(films => {
     res.json(films);
   });
 });
@@ -159,7 +159,7 @@ app.get("/people", (req, res) => {
  * @apiSuccess {String} peopleUrl Url back to /people.
  */
 app.get("/people/:id", (req, res) => {
-  People.findOne({ id: req.params.id }).then(people => {
+  People.findOne({ _id: req.params.id }).then(people => {
     res.json(people);
   });
 });
@@ -210,7 +210,7 @@ app.post("/people/create", (req, res) => {
  * @apiSuccess {String} peopleUrl Url back to /people.
  */
 app.put("/people/update/:id", (req, res) => {
-  People.findOneAndUpdate({ id: req.params.id }, req.body, { new: true }).then(
+  People.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).then(
     people => {
       res.json(people);
     }
@@ -302,7 +302,7 @@ app.delete("/films/delete/:id", (req, res) => {
  * @apiSuccess {String} peopleUrl Url back to /people.
  */
 app.delete("/people/delete/:id", (req, res) => {
-  People.findOneAndRemove({ id: req.params.id }).then(people => {
+  People.findOneAndRemove({ _id: req.params.id }).then(people => {
     res.json(people);
   });
 });
